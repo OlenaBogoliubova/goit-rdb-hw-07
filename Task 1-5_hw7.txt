@@ -1,0 +1,38 @@
+HW 7.
+
+-- Task 1
+SELECT 
+    id,
+    date,
+    YEAR(date) AS order_year,
+    MONTH(date) AS order_month,
+    DAY(date) AS order_day
+FROM orders;
+
+-- Task 2
+SELECT 
+    id,
+    date AS original_date,
+    DATE_ADD(date, INTERVAL 1 DAY) AS new_date
+FROM orders;
+
+-- Task 3
+SELECT 
+    id,
+    date AS original_date,
+    UNIX_TIMESTAMP(date) AS timestamp
+FROM orders;
+
+-- Task 4
+SELECT COUNT(*) AS total_rows
+FROM orders
+WHERE date BETWEEN '1996-07-10 00:00:00' AND '1996-10-08 00:00:00';
+
+-- Task 5
+SELECT 
+    id,
+    date,
+    JSON_OBJECT('id', id, 'date', date) AS json_object
+FROM orders;
+
+
